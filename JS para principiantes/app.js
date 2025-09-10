@@ -1,10 +1,9 @@
-//let contar = 50;
-let contar = 1;
-while(contar <= 50 ){
-//while(contar > 0 ){ //bucle infinito
-//while(contar > 0 ){
-    //console.log("hola mundo");
-    console.log(contar);
-    //contar = contar + 1;
-    contar++;
+let nombres = ["chema","jose","dolores"];
+//console.log(nombres[2])
+//console.log(nombres.length);
+//for(let indice = 0; indice < nombres.length; indice++){
+for(let indice = nombres.length - 1; indice >= 0; indice--){
+
+    console.log(nombres[indice])
+
 }
