@@ -1,21 +1,8 @@
-//objeto
-"rayan"
-70.4
-14
-true
-{
-    "sername": "rayan",
-    "score": 70.4,
-    "hours": 14,
-    "proffesional": true,
-    "friends": [" "," "," ",]
+var nombre = "john";
+let apellido ="carter"
+apellido ="pepe";
+console.log(apellido)
 
-}
-{
-    "sername": "joe",
-    "score": 0.4,
-    "friends": [" "," "," ",]
-
-}
-console.log([1,2,3])
-console.log({"username":"rayan","score":70.4});
+const PI =3.1416;
+//PI = 100
+console.log(PI)
