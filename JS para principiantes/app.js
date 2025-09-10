@@ -1,5 +1,4 @@
-1000000000//number
--2.3
-boolean
-true
-false
+//arreglo
+["jose","rayan","martyn"]
+[1,2,3]
+[true,false,true,false]
