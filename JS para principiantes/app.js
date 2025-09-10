@@ -1,26 +1,7 @@
-//estoy creando variables
-var nombre = "john";
-let apellido ="carter"
-apellido ="pepe";
-console.log(apellido)
-
-//Reasignando la variable nameuser
-
-const PI =3.1416;
-//PI = 100
-
-console.log(PI)
-
-//1username = "fazt";
-//let nicknme ="fazt";
-
-//camelcase
-//let nombreDePersona = "gordon";
-//nombredepersona;
-//user_name
-
-
-/*gifuhifvkvhbijrfjkrfrfrfgfrg
-rgrgrgrgrgrrtrt
-rtrtrtrtrtrtrtjlkjhlhyhyhyhy
-*/
+//let numero1 = 60;
+//let numero2 = 40;
+//let resultado = numero1 + numero2;
+let nombre= "jon";
+let apellido="carter";
+let completo = nombre + " " + apellido;
+console.log(completo);
