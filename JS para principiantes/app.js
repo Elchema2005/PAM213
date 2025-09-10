@@ -1,9 +1,15 @@
-let nombres = ["chema","jose","dolores"];
-//console.log(nombres[2])
-//console.log(nombres.length);
-//for(let indice = 0; indice < nombres.length; indice++){
-for(let indice = nombres.length - 1; indice >= 0; indice--){
-
-    console.log(nombres[indice])
-
+//function saludar(NombrePersona){
+//    console.log(NombrePersona)
+//    console.log("hola" + NombrePersona);
+//}
+//saludar();// llamar las veses que quieras
+/*saludar("Markus");
+saludar("Maria");
+saludar("chema");*/
+function add(n1,n2){
+    console.log(n1 + n2);
 }
+add(3,2);
+add(100,300);
+add(222222222,344444);
+add(3,2);
