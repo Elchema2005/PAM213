@@ -1,9 +1,11 @@
-let score = 70;
-if (score > 30){
-    console.log("Practica mas");
-} else if(score > 15){
-    console.log("estas mejorando");
-}
-else{
-    console.log("practicamas con este tutorial");
+let typcard ="tarjeta de debito";
+switch(typcard){
+    case "tarjeta de debito":
+        console.log("es una tarjeta de debito");
+        break;
+    case "tarjeta de credito":
+        console.log("es una tarjeta de credito");
+        break;
+        default:
+            console.log("Notienes tarjeta");
 }
