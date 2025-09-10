@@ -1,5 +1,5 @@
-document.write("<h1>Hola mundo</h1>");
-//tipos de datos
-"Hola mundo"//string
-`Hola mundo`//string
-
+1000000000//number
+-2.3
+boolean
+true
+false
