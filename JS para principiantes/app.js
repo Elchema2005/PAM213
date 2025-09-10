@@ -1,11 +1,10 @@
-let typcard ="tarjeta de debito";
-switch(typcard){
-    case "tarjeta de debito":
-        console.log("es una tarjeta de debito");
-        break;
-    case "tarjeta de credito":
-        console.log("es una tarjeta de credito");
-        break;
-        default:
-            console.log("Notienes tarjeta");
+//let contar = 50;
+let contar = 1;
+while(contar <= 50 ){
+//while(contar > 0 ){ //bucle infinito
+//while(contar > 0 ){
+    //console.log("hola mundo");
+    console.log(contar);
+    //contar = contar + 1;
+    contar++;
 }
