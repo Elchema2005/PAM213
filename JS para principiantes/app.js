@@ -1,7 +1,6 @@
-//let numero1 = 60;
-//let numero2 = 40;
-//let resultado = numero1 + numero2;
-let nombre= "jon";
-let apellido="carter";
-let completo = nombre + " " + apellido;
-console.log(completo);
+let numero1 = 100;
+let numero2 = 500;
+//let result = numero1 > numero2;
+//let result = numero1 == numero2;
+let result = numero1 != numero2;
+console.log(result);
