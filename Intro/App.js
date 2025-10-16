@@ -1,8 +1,8 @@
-import Contador from './Screen/Contador';
+import Menu from './Screen/Menu';
 
 //zona 2 main: Zona de componentes
 export default function App() {
   return (
-    <Contador></Contador>
+    <Menu></Menu>
   );
 }
