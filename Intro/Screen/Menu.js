@@ -1,82 +1,78 @@
-import {Text,StyleSheet,View,Button} from 'react-native';
-import React,{useState} from 'react';
+import { Text, StyleSheet, View, Button } from 'react-native';
+import React, { useState } from 'react';
 import Contador from './Contador';
 import Botones from './Botones';
-import Backgroung from './Backgroung';
-import FlatList  from './FlatList';
+import Background from './Background'; // Corregido el nombre de la importación
+import FlatList from './FlatList';
 import Indicator from './Indicator';
 import ScrollView from './ScrollView';
 import TextInput from './TextInput';
-//zona 2 main: Zona de componentes
 
 export default function Menu() {
+const [screen, setScreen] = useState('menu');
 
-
-    const [noscreen,setScreen]=useState('menu');
-
-    switch (screen){
-        case 'contador':
-            return<Contador/>
-            case 'botones':
-            return<Botones/>
-            case 'background':
-            return<Backgroung/>
-            case 'flatlist':
-            return<FlatList/>
-            case 'indicator':
-            return<Indicator/>
-            case 'scrollview':
-            return<ScrollView/>
-            case 'textinput':
-            return<TextInput/>
-            case 'menu':
-            default:
-                return(
-        <View>
-            <Text>Menu de preacticas</Text>
-            <Button title='Pract:Contador' onPress={()=>setScreen('contador')}/>
-                <Button title='Pract:Buttons' onPress={()=>setScreen('botones')}/>
-                <Button title='Pract:Backgroung' onPress={()=>setScreen('background')}/>
-                <Button title='Pract:FlatList' onPress={()=>setScreen('flatlist')}/>
-                <Button title='Pract:Indicator' onPress={()=>setScreen('indicator')}/>
-                <Button title='Pract:ScrollView' onPress={()=>setScreen('scrollview')}/>
-                <Button title='Pract:Indicator' onPress={()=>setScreen('indicator')}/>
-                <Button title='Pract:Sheet' onPress={()=>setScreen('sheet')}/>
-            </View>
-    )
-
-    }
+switch (screen) {
+    case 'contador':
+    return <Contador />;
+    case 'botones':
+    return <Botones />;
+    case 'texto':
+      return <TextInput />; // Corregido el componente a renderizar
+    case 'fondo':
+      return <Background />; // Corregido el componente a renderizar
+    case 'desplaza':
+      return <ScrollView />; // Corregido el componente a renderizar
+    case 'indicadores':
+      return <Indicator />; // Corregido el componente a renderizar
+    case 'lista':
+      return <FlatList />; // Corregido el componente a renderizar
+    case 'modales':
+      return <Modal />; // Asumiendo que tienes un componente Modal
+    case 'botones2':
+      return <Botones />; // Asumiendo que es el mismo componente o uno diferente
+    case 'menu':
+    default:
+    return (
+        <View style={styles.container}>
+        <Text style={styles.texto}>Menu de prácticas</Text>
+        <View style={styles.botonesContainer}>
+            <Button color='green' title='Pract: Contador' onPress={() => setScreen('contador')} />
+            <Button color='black' title='Pract: Botones' onPress={() => setScreen('botones')} />
+            <Button color='purple' title='Pract: Text Input' onPress={() => setScreen('texto')} />
+            <Button color='grey' title='Pract: Background Image' onPress={() => setScreen('fondo')} />
+            <Button color='blue' title='Pract: ScrollView' onPress={() => setScreen('desplaza')} />
+            <Button color='orange' title='Pract: Activity Indicator' onPress={() => setScreen('indicadores')} />
+            <Button color='brown' title='Pract: FlatList' onPress={() => setScreen('lista')} />
+            <Button color='red' title='Pract: Modal' onPress={() => setScreen('modales')} />
+            <Button color='purple' title='Pract: Bottom Sheet' onPress={() => setScreen('botones2')} />
+        </View>
+        </View>
+    );
+}
 }
 
-//Zona 3: Zona de los estilos
 const styles = StyleSheet.create({
 container: {
     flex: 1,
-    backgroundColor: '#000000ff',
+    marginTop: 15,
+    backgroundColor: '#6fc4f5ff', // Color de fondo 
+    alignItems: 'center', // Alinea en eje x
+    justifyContent: 'center', // Alinea en eje y
+},
+texto: {
+    color: "#661d02ff",
+    fontSize: 30,
+    fontFamily: 'Times New Roman',
+    fontWeight: 'bold',
+    fontStyle: 'italic',
+    textDecorationLine: 'line-through',
+},
+botonesContainer: {
+    marginTop: 15, // Margen hacia arriba
+    flexDirection: 'column', // Cambiado a 'column' para una mejor alineación
     alignItems: 'center',
     justifyContent: 'center',
+    gap: 10, // Separación entre botones
 },
-Texto:{
-    color:"#ffee00ff",
-    fontSize: 30,
-    frontFamily:'Times New Roman',
-    fontWeight:'bold',
-    fontStyle:'italic',
-    textDecorationLine:'Line-through',
-},
-Texto2:{
-    color:"#ffffffff",
-    fontSize: 35,
-    frontFamily:'Courier',
-    fontWeight:'400',
-    fontStyle:'normal',
-    textDecorationLine:'underLine',
-},
-botonesContainer:{
-marginTop:15,
-flexDirection:'row',
-alignItems:'center',
-justifyContent:'center',
-gap:10,
-}
 });
+
