@@ -9,13 +9,13 @@ import ScrollView from './ScrollView';
 import TextInput from './TextInput';
 
 export default function Menu() {
-const [screen, setScreen] = useState('menu');
+  const [screen, setScreen] = useState('menu');
 
-switch (screen) {
+  switch (screen) {
     case 'contador':
-    return <Contador />;
+      return <Contador />;
     case 'botones':
-    return <Botones />;
+      return <Botones />;
     case 'texto':
       return <TextInput />; // Corregido el componente a renderizar
     case 'fondo':
@@ -32,10 +32,10 @@ switch (screen) {
       return <Botones />; // Asumiendo que es el mismo componente o uno diferente
     case 'menu':
     default:
-    return (
+      return (
         <View style={styles.container}>
-        <Text style={styles.texto}>Menu de prácticas</Text>
-        <View style={styles.botonesContainer}>
+          <Text style={styles.texto}>Menu de prácticas</Text>
+          <View style={styles.botonesContainer}>
             <Button color='green' title='Pract: Contador' onPress={() => setScreen('contador')} />
             <Button color='black' title='Pract: Botones' onPress={() => setScreen('botones')} />
             <Button color='purple' title='Pract: Text Input' onPress={() => setScreen('texto')} />
@@ -45,34 +45,33 @@ switch (screen) {
             <Button color='brown' title='Pract: FlatList' onPress={() => setScreen('lista')} />
             <Button color='red' title='Pract: Modal' onPress={() => setScreen('modales')} />
             <Button color='purple' title='Pract: Bottom Sheet' onPress={() => setScreen('botones2')} />
+          </View>
         </View>
-        </View>
-    );
-}
+      );
+  }
 }
 
 const styles = StyleSheet.create({
-container: {
+  container: {
     flex: 1,
     marginTop: 15,
     backgroundColor: '#6fc4f5ff', // Color de fondo 
     alignItems: 'center', // Alinea en eje x
     justifyContent: 'center', // Alinea en eje y
-},
-texto: {
+  },
+  texto: {
     color: "#661d02ff",
     fontSize: 30,
     fontFamily: 'Times New Roman',
     fontWeight: 'bold',
     fontStyle: 'italic',
     textDecorationLine: 'line-through',
-},
-botonesContainer: {
+  },
+  botonesContainer: {
     marginTop: 15, // Margen hacia arriba
     flexDirection: 'column', // Cambiado a 'column' para una mejor alineación
     alignItems: 'center',
     justifyContent: 'center',
     gap: 10, // Separación entre botones
-},
+  },
 });
-
