@@ -2,12 +2,11 @@ import { Text, StyleSheet, View, Button } from 'react-native';
 import React, { useState } from 'react';
 import Contador from './Contador';
 import Botones from './Botones';
-import Background from './Background'; // Corregido el nombre de la importación
+/* import Background from './Background'; // Corregido el nombre de la importación
 import FlatList from './FlatList';
 import Indicator from './Indicator';
 import ScrollView from './ScrollView';
-import TextInput from './TextInput';
-
+import Modal from './Modal'; */
 export default function Menu() {
   const [screen, setScreen] = useState('menu');
 
@@ -17,7 +16,7 @@ export default function Menu() {
     case 'botones':
       return <Botones />;
     case 'texto':
-      return <TextInput />; // Corregido el componente a renderizar
+      return <TextInput />; // Asumiendo que tienes un componente TextInput
     case 'fondo':
       return <Background />; // Corregido el componente a renderizar
     case 'desplaza':
@@ -55,7 +54,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 15,
-    backgroundColor: '#6fc4f5ff', // Color de fondo 
+    backgroundColor: '#6fc4f5ff', // Color de fondo
     alignItems: 'center', // Alinea en eje x
     justifyContent: 'center', // Alinea en eje y
   },
