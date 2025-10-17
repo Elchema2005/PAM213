@@ -13,7 +13,7 @@ export default function Botones() {
 
     return (
         <View style={[styles.container, tema]}>
-            <Text style={[styles.title, texto]}>Pantalla de botones y Switches</Text>
+            <Text style={[styles.title, texto]}>Pantalla de botones & Switches</Text>
             <View style={[styles.section]}>
                 <Text style={[styles.subtitulo, texto]}>Botones</Text>
                 <View style={styles.buttonContainer}>
