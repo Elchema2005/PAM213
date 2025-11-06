@@ -1,37 +1,28 @@
-import { Text, StyleSheet, View, Button } from 'react-native';
+import { Text, StyleSheet, View, Button, ScrollView as RNScrollView, FlatList, Modal, ActivityIndicator } from 'react-native';
 import React, { useState } from 'react';
 import Contador from './Contador';
 import Botones from './Botones';
-/* import Background from './Background'; // Corregido el nombre de la importación
-import FlatList from './FlatList';
-import Indicator from './Indicator';
-import ScrollView from './ScrollView';
-import Modal from './Modal'; */
+import Backgroung from './Backgroung';
+import Repaso from './Repaso'; 
+import TextInputComponent from './TextInput'; 
+import CustomScrollView from './CustomScrollView'; 
+
 export default function Menu() {
   const [screen, setScreen] = useState('menu');
 
-  switch (screen) {
-    case 'contador':
-      return <Contador />;
-    case 'botones':
-      return <Botones />;
-    case 'texto':
-      return <TextInput />; // Asumiendo que tienes un componente TextInput
-    case 'fondo':
-      return <Background />; // Corregido el componente a renderizar
-    case 'desplaza':
-      return <ScrollView />; // Corregido el componente a renderizar
-    case 'indicadores':
-      return <Indicator />; // Corregido el componente a renderizar
-    case 'lista':
-      return <FlatList />; // Corregido el componente a renderizar
-    case 'modales':
-      return <Modal />; // Asumiendo que tienes un componente Modal
-    case 'botones2':
-      return <Botones />; // Asumiendo que es el mismo componente o uno diferente
-    case 'menu':
-    default:
-      return (
+  const renderScreen = () => {
+    const screens = {
+      contador: <Contador />,
+      botones: <Botones />,
+      texto: <TextInputComponent />,
+      fondo: <Backgroung />,
+      desplaza: <CustomScrollView />,
+      indicadores: <ActivityIndicator />,
+      lista: <FlatList />,
+      modales: <Modal />,
+      repaso: <Repaso />,
+      botones2: <Botones />,
+      menu: (
         <View style={styles.container}>
           <Text style={styles.texto}>Menu de prácticas</Text>
           <View style={styles.botonesContainer}>
@@ -43,23 +34,29 @@ export default function Menu() {
             <Button color='orange' title='Pract: Activity Indicator' onPress={() => setScreen('indicadores')} />
             <Button color='brown' title='Pract: FlatList' onPress={() => setScreen('lista')} />
             <Button color='red' title='Pract: Modal' onPress={() => setScreen('modales')} />
+            <Button color='purple' title='Pract: Repaso' onPress={() => setScreen('repaso')} />
             <Button color='purple' title='Pract: Bottom Sheet' onPress={() => setScreen('botones2')} />
           </View>
         </View>
-      );
-  }
+      ),
+    };
+
+    return screens[screen] || <Text style={styles.texto}>Pantalla no encontrada</Text>;
+  };
+
+  return renderScreen();
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 15,
-    backgroundColor: '#6fc4f5ff', // Color de fondo
-    alignItems: 'center', // Alinea en eje x
-    justifyContent: 'center', // Alinea en eje y
+    backgroundColor: '#000000ff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   texto: {
-    color: "#661d02ff",
+    color: "#ffffffff",
     fontSize: 30,
     fontFamily: 'Times New Roman',
     fontWeight: 'bold',
@@ -67,10 +64,10 @@ const styles = StyleSheet.create({
     textDecorationLine: 'line-through',
   },
   botonesContainer: {
-    marginTop: 15, // Margen hacia arriba
-    flexDirection: 'column', // Cambiado a 'column' para una mejor alineación
+    marginTop: 15,
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 10, // Separación entre botones
+    gap: 10,
   },
 });
