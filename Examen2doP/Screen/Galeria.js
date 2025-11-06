@@ -1,49 +1,22 @@
 import React, { useState } from 'react';
-import { ScrollView, View, Text, StyleSheet, Button, Alert } from 'react-native';
+
+import { ScrollView, View, Text, StyleSheet, Button, Image } from 'react-native';
 
 const SPLASH_IMAGEN = require('../assets/Recursos/1.jpeg');
 const MAIN_IMAGEN = require('../assets/Recursos/3.jpeg');
 const LOGO_IMAGEN = require('../assets/Recursos/2.jpeg');
 
-export default function ScrollViewScreen() {
-  const [items, setItems] = useState(["Opción 1", "Opción 2", "Opción 3","Opción 4", "Opción 5", "Opción 6"]);
+export default function Galeria() {
+    const [items, setItems] = useState([
+    { title: "Opción 1", image: SPLASH_IMAGEN },
+    { title: "Opción 2", image: MAIN_IMAGEN },
+    { title: "Opción 3", image: LOGO_IMAGEN },
+    { title: "Opción 4", image: SPLASH_IMAGEN },
+    { title: "Opción 5", image: MAIN_IMAGEN },
+    { title: "Opción 6", image: LOGO_IMAGEN },
+  ]);
 
-    return (
-        <View style={[styles.container, tema]}>
-            <View style={[styles.section]}>
-
-                <View style={styles.buttonContainer} >  
-                    <Button title="Opción 1" color="blue" onPress={() => {}} />
-                    <Button title="Opción 2" color="green" onPress={() => {}} />
-                    <Button title="Opción 3" color="yellow" onPress={() => {}} />
-                    <Button title="Opción 4" color="red" onPress={() => {}} />
-                    <Button title="Opción 5" color="purple" onPress={() => {}} />
-                    <Button title="Opción 6" color="orange" onPress={() => {}} />
-                </View>
-                <StatusBar style="auto" />
-            </View>
-        </View>
-    );
-
-        
-  const agregarOpcion = () => {
-    const nuevaOpcion = `Opción ${items.length + 1}`;
-    if (!items.includes(nuevaOpcion)) {
-      setItems([...items, nuevaOpcion]);
-    } else {
-      Alert.alert("Error", "Esta opción ya existe.");
-    }
-  };
-
-  const borrarUltima = () => {
-    if (items.length > 3) {
-      setItems(items.slice(0, items.length - 1));
-    } else {
-      Alert.alert("Información", "Solo se borran las opciones que agregaste nuevas");
-    }
-  };
-
-  return (
+ return (
     <View style={styles.container}>
       <Text style={styles.title}> Mi Galeria</Text>
 
@@ -58,16 +31,13 @@ export default function ScrollViewScreen() {
       >
         {items.map((item, index) => (
           <View key={index} style={styles.box}>
-            <Text style={styles.text}>{item}</Text>
+            <Image source={item.image} style={styles.image} />
+            <Text style={styles.text}>{item.title}</Text>
           </View>
         ))}
       </ScrollView>
-
-      <View style={styles.buttonContainer}>
-        <Button title="Agregar opción" color="#4d8a71ff" onPress={agregarOpcion} />
-        <View style={styles.space} />
-        <Button title="Borrar última" color="#d99d4fff" onPress={borrarUltima} />
-      </View>
+      <Button title="Ir a la página de detalles" onPress={() => alert('Botón presionado')} />
+        
     </View>
   );
 }
@@ -111,12 +81,32 @@ const styles = StyleSheet.create({
     color: '#1F2937',
     textAlign: 'center',
   },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginBottom: 10,
+    box: {
+    backgroundColor: '#82B6ED',
+    width: 150, 
+    padding: 10,
+    marginVertical: 10,
+    borderRadius: 15,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    alignItems: 'center', 
   },
+  image: {
+    width: 100,
+    height: 100, 
+    borderRadius: 10,
+    marginBottom: 5,
+  },
+  text: { 
+    fontSize: 18, 
+    color: '#1F2937',
+    textAlign: 'center',
+  },
+  
   space: {
     width: 10, 
+    height: 10, 
   },
 });
