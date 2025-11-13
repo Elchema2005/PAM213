@@ -37,7 +37,7 @@ export default function Galeria() {
         ))}
       </ScrollView>
       <Button title="Ir a la página de detalles" onPress={() => alert('Botón presionado')} />
-        
+   
     </View>
   );
 }
