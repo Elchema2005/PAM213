@@ -1,11 +1,18 @@
-import { Text, StyleSheet, View, Button, ScrollView as RNScrollView, FlatList, Modal, ActivityIndicator } from 'react-native';
+import { Text, StyleSheet, View, Button, ScrollView as RNScrollView, FlatList, Modal, ActivityIndicator,} from 'react-native';
 import React, { useState } from 'react';
 import Contador from './Contador';
 import Botones from './Botones';
 import Backgroung from './Backgroung';
 import Repaso from './Repaso'; 
 import TextInputComponent from './TextInput'; 
-import CustomScrollView from './CustomScrollView'; 
+import CustomScrollView from './CustomScrollView';
+import Indicator from './Indicator';
+import FlatListScreen from './FlatListScreen';
+import FlatListScreen2 from './FlatListScreen2';
+import ModalScreen from './ModalScreen';
+import BottomSheetScreen from './BottomSheetScreen';
+
+
 
 export default function Menu() {
   const [screen, setScreen] = useState('menu');
@@ -17,11 +24,16 @@ export default function Menu() {
       texto: <TextInputComponent />,
       fondo: <Backgroung />,
       desplaza: <CustomScrollView />,
-      indicadores: <ActivityIndicator />,
-      lista: <FlatList />,
+      Indicador: <Indicator />,
+      lista: <FlatListScreen />,
+      lista2: <FlatListScreen2 />,
       modales: <Modal />,
       repaso: <Repaso />,
       botones2: <Botones />,
+      modales: <ModalScreen />,
+      BottomSheetScreen: <BottomSheetScreen/>,
+
+      
       menu: (
         <View style={styles.container}>
           <Text style={styles.texto}>Menu de prácticas</Text>
@@ -31,11 +43,15 @@ export default function Menu() {
             <Button color='purple' title='Pract: Text Input' onPress={() => setScreen('texto')} />
             <Button color='grey' title='Pract: Background Image' onPress={() => setScreen('fondo')} />
             <Button color='blue' title='Pract: ScrollView' onPress={() => setScreen('desplaza')} />
-            <Button color='orange' title='Pract: Activity Indicator' onPress={() => setScreen('indicadores')} />
+            <Button color='orange' title='Pract: Activity Indicator' onPress={() => setScreen('Indicador')} />
             <Button color='brown' title='Pract: FlatList' onPress={() => setScreen('lista')} />
-            <Button color='red' title='Pract: Modal' onPress={() => setScreen('modales')} />
+            <Button color='brown' title='Pract: FlatList 2' onPress={() => setScreen('lista2')} />
+            <Button color='red' title='Pract: ModalScreen' onPress={() => setScreen('modales')} />
             <Button color='purple' title='Pract: Repaso' onPress={() => setScreen('repaso')} />
-            <Button color='purple' title='Pract: Bottom Sheet' onPress={() => setScreen('botones2')} />
+            <Button color='purple' title='Pract: BottomSheetScreen' onPress={() => setScreen('BottomSheetScreen')} />
+
+
+              
           </View>
         </View>
       ),
