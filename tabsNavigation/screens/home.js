@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <View style={styles.iconRow}>
+
         <Ionicons name="home-outline" size={28} color="red" />
         <Text style={styles.title}>Bienvenido a la pantalla principal</Text>
       </View>
@@ -15,7 +16,7 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#3a3d98ff',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
@@ -25,9 +26,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: 'bold',
-    marginLeft: 10,
+    marginTop: 10,
     color: 'red',
   },
 });

@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons'; 
 
-export default function Settings({ navigation }) {
+export default function Settings() {
   return (
     <View style={styles.container}>
       <View style={styles.iconRow}>
@@ -15,7 +15,7 @@ export default function Settings({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#434065ff',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontWeight: 'bold',
-    marginLeft: 10,
+    marginTop: 10,
     color: 'blue',
   },
 });
