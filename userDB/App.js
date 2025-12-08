@@ -1,19 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import UsuarioView from './ScreensXD/InsertUsuarioScreen'; 
+import { useEffect } from 'react';
+import { crearTablaTutorias } from './database/Database';
 
 export default function App() {
+  useEffect(() => {
+    crearTablaTutorias(); // ← CREA LA TABLA AL INICIAR
+  }, []);
+
   return (
-    <View style={styles.container}>
-      <UsuarioView /> 
-      <StatusBar style="auto" />
-    </View>
+    <Navigation /> 
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1, 
-    backgroundColor: '#fff',
-  },
-});
