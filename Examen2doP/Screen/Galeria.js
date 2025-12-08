@@ -1,112 +1,145 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { ScrollView, View, Text, StyleSheet, Button, ImageBackground, Alert } from 'react-native';
 
-import { ScrollView, View, Text, StyleSheet, Button, Image } from 'react-native';
+const IMG1 = require('../assets/Recursos/1.jpeg');
+const IMG2 = require('../assets/Recursos/2.jpeg');
+const IMG3 = require('../assets/Recursos/3.jpeg');
 
-const SPLASH_IMAGEN = require('../assets/Recursos/1.jpeg');
-const MAIN_IMAGEN = require('../assets/Recursos/3.jpeg');
-const LOGO_IMAGEN = require('../assets/Recursos/2.jpeg');
+const DATA = [
+  {
+    title: 'Atardecer dorado',
+    image: IMG1,
+    brief: 'Cielo anaranjado sobre el horizonte.',
+    details: 'Un atardecer vibrante que pinta el cielo de tonos cálidos y resalta las siluetas del paisaje.'
+  },
+  {
+    title: 'Montañas serenas',
+    image: IMG2,
+    brief: 'Cordillera bajo nubes suaves.',
+    details: 'Picos majestuosos envueltos por nubes algodonosas, transmitiendo calma y grandeza natural.'
+  },
+  {
+    title: 'Bosque esmeralda',
+    image: IMG3,
+    brief: 'Sendero entre árboles frondosos.',
+    details: 'Un recorrido entre árboles altos donde la luz se filtra creando un ambiente místico y fresco.'
+  },
+  {
+    title: 'Orilla tranquila',
+    image: IMG1,
+    brief: 'Arena fina y olas suaves.',
+    details: 'Playas silenciosas que invitan a caminar descalzo y escuchar el vaivén relajante del mar.'
+  },
+  {
+    title: 'Ciudad nocturna',
+    image: IMG2,
+    brief: 'Luces y reflejos urbanos.',
+    details: 'Rascacielos iluminados, reflejos en el asfalto y una energía vibrante que nunca descansa.'
+  },
+  {
+    title: 'Valle floral',
+    image: IMG3,
+    brief: 'Pradera cubierta de flores.',
+    details: 'Colores vivos que tapizan el valle, abejas zumbando y brisa que perfuma el ambiente.'
+  }
+];
 
 export default function Galeria() {
-    const [items, setItems] = useState([
-    { title: "Opción 1", image: SPLASH_IMAGEN },
-    { title: "Opción 2", image: MAIN_IMAGEN },
-    { title: "Opción 3", image: LOGO_IMAGEN },
-    { title: "Opción 4", image: SPLASH_IMAGEN },
-    { title: "Opción 5", image: MAIN_IMAGEN },
-    { title: "Opción 6", image: LOGO_IMAGEN },
-  ]);
+  const handleDetails = (item) => {
+    Alert.alert(
+      item.title,
+      item.details,
+      [
+        { text: 'Cerrar', style: 'cancel' }
+      ],
+      { cancelable: true }
+    );
+  };
 
- return (
+  return (
     <View style={styles.container}>
-      <Text style={styles.title}> Mi Galeria</Text>
+      <Text style={styles.title}>Mi Galería</Text>
 
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={styles.content}
-        horizontal={true}
         showsVerticalScrollIndicator={false}
-        persistentScrollbar={true}
-        scrollEnabled={true}
-        keyboardDismissMode="on-drag"
       >
-        {items.map((item, index) => (
-          <View key={index} style={styles.box}>
-            <Image source={item.image} style={styles.image} />
-            <Text style={styles.text}>{item.title}</Text>
+        {DATA.map((item, idx) => (
+          <View key={idx} style={styles.card}>
+            <ImageBackground source={item.image} style={styles.image} imageStyle={styles.imageRadius}>
+              <View style={styles.overlay}>
+                <Text style={styles.cardTitle}>{item.title}</Text>
+                <Text style={styles.cardDesc}>{item.brief}</Text>
+                <View style={styles.buttonContainer}>
+                  <Button title="Ver detalles" onPress={() => handleDetails(item)} />
+                </View>
+              </View>
+            </ImageBackground>
           </View>
         ))}
       </ScrollView>
-      <Button title="Ir a la página de detalles" onPress={() => alert('Botón presionado')} />
-   
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
-    padding: 20, 
-    backgroundColor: '#EEF2FF',
+  container: {
+    flex: 1,
+    backgroundColor: '#F3F4F6',
+    paddingHorizontal: 16,
+    paddingTop: 20,
+    paddingBottom: 8,
   },
-  title: { 
-    fontSize: 26, 
+  title: {
+    fontSize: 28,
     fontWeight: 'bold',
-    textAlign: 'center', 
-    marginVertical: 15, 
-    color: '#2C3E50',
-  },
-  scroll: { 
-    flex: 1, 
-    marginBottom: 15, 
-    borderRadius: 10,
-    backgroundColor: '#F9FAFB',
-  },
-  content: { 
-    paddingVertical: 15, 
-    alignItems: 'center',
-  },
-  box: {
-    backgroundColor: '#82B6ED',
-    width: '90%',
-    padding: 20,
-    marginVertical: 10,
-    borderRadius: 15,
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-  },
-  text: { 
-    fontSize: 18, 
-    color: '#1F2937',
     textAlign: 'center',
+    color: '#111827',
+    marginBottom: 12,
   },
-    box: {
-    backgroundColor: '#82B6ED',
-    width: 150, 
-    padding: 10,
-    marginVertical: 10,
-    borderRadius: 15,
+  scroll: {
+    flex: 1,
+  },
+  content: {
+    paddingBottom: 24,
+  },
+  card: {
+    backgroundColor: '#ffffff',
+    borderRadius: 16,
+    overflow: 'hidden',
+    marginBottom: 16,
     elevation: 3,
     shadowColor: '#000',
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    alignItems: 'center', 
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
   },
   image: {
-    width: 100,
-    height: 100, 
-    borderRadius: 10,
-    marginBottom: 5,
+    height: 200,
+    width: '100%',
+    justifyContent: 'flex-end',
   },
-  text: { 
-    fontSize: 18, 
-    color: '#1F2937',
-    textAlign: 'center',
+  imageRadius: {
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
   },
-  
-  space: {
-    width: 10, 
-    height: 10, 
+  overlay: {
+    backgroundColor: 'rgba(0,0,0,0.35)',
+    padding: 12,
+  },
+  cardTitle: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#fff',
+    marginBottom: 4,
+  },
+  cardDesc: {
+    fontSize: 14,
+    color: '#E5E7EB',
+    marginBottom: 8,
+  },
+  buttonContainer: {
+    alignSelf: 'flex-start',
   },
 });
